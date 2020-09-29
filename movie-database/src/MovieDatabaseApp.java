@@ -13,38 +13,43 @@ public class MovieDatabaseApp {
 			int dataType = sc.nextInt();
 
 			if (dataType == 1) {
-				System.out.println("Actor First name:");
+				sc.nextLine();
+				System.out.println("Actor First name: ");
 				String actorFirstName = sc.nextLine();
-				System.out.println("Actor Last name");
+				System.out.println("Actor Last name: ");
 				String actorLastName = sc.nextLine();
-				System.out.println("Actor Gender");
+				System.out.println("Actor Gender: ");
 				String actorGender = sc.nextLine();
-				System.out.println("Actor Birthday");
+				System.out.println("Actor Birthday: ");
 				String actorBirtdate = sc.nextLine();
-				String message = "Actor First name" + "Actor Last name" + "Actor Gender" + "Actor Birthdate";
+				String message = "Actor First name" + "Actors Last name" + "Actor Gender" + "Actor Birthdate";
 				System.out.println(message);
 				continue;
 			}
 
 			else if (dataType == 2) {
-				System.out.println("Title:");
+				sc.nextLine();
+				System.out.println("Title: ");
 				String movieTitle = sc.nextLine();
-				System.out.println("Genre");
+				System.out.println("Genre: ");
 				String movieGenre = sc.nextLine();
-				System.out.println("Date Released");
-				long dateReleased = sc.nextLong();
-				System.out.println("Rating");
-				String message = "Title" + "Genre" + "Date Released" + "Rating";
+				System.out.println("Date Released: ");
+				int dateReleased = sc.nextInt();
+				sc.nextLine();
+				String movieRating = sc.nextLine();
+				System.out.println("Rating: ");
+				String message = movieTitle + movieGenre + dateReleased + movieRating;
 				System.out.println(message);
 				continue;
 			}
 			if (dataType == 3) {
-				System.out.println("Goodbye");
+				System.out.println("Goodbye ");
 				continue;
 
 			}
 
 		}
+		sc.close();
 
 	}
 }

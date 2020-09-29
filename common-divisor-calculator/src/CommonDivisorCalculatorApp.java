@@ -12,25 +12,34 @@ public class CommonDivisorCalculatorApp {
 			System.out.println(" ");
 			// get input from the user 2 numbers
 			System.out.println("Enter first number");
-			int num1 = sc.nextInt();
+			int x = sc.nextInt();
 			System.out.println("Enter second number");
-			int num2 = sc.nextInt();
+			int y = sc.nextInt();
 
-			while (num1 != num2) {
-				if (num1 > num2)
-					num1 = num1 - num2;
-				else
-					num2 = num2 - num1;
+			// while (num1 != num2) { //what I did
+			// if (num1 > num2)
+			// num1 = num1 - num2;
+			// else
+			// num2 = num2 - num1;
+			// }
+			while (x > 0) {      //what we did in class
+				while (y >= x) {
+					y -= x;
+				}
+				int tempY = y;
+				y = x;
+				x = tempY;
 			}
-
-			System.out.printf("GCD of the two numbers is: %d", num2);
+			
+			System.out.printf("GCD of the two numbers is: " +y);
+			System.out.println();
 			System.out.print("Continue? (y/n): ");
 			choice = sc.next();
 			System.out.println();
 			System.out.println("Goodbye :)");
-			sc.close();
+			
 
 		}
-
-	}
+		sc.close();
+	} 
 }
