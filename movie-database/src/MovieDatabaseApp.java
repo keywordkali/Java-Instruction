@@ -9,7 +9,7 @@ public class MovieDatabaseApp {
 			System.out.println("Welcome to the Movie Database! :) ");
 			System.out.println(" ");
 
-			System.out.print("Add Actor Movie or Exit (1/2/3):");
+			System.out.print("Add Actor\n Add Movie \n Exit \n (1/2/3):");
 			int dataType = sc.nextInt();
 
 			if (dataType == 1) {
@@ -32,7 +32,7 @@ public class MovieDatabaseApp {
 				System.out.println("Genre");
 				String movieGenre = sc.nextLine();
 				System.out.println("Date Released");
-				int dateReleased = sc.nextInt();
+				long dateReleased = sc.nextLong();
 				System.out.println("Rating");
 				String message = "Title" + "Genre" + "Date Released" + "Rating";
 				System.out.println(message);
