@@ -13,7 +13,7 @@ public class InterestCalculatorApp {
 			// welcome the user
 			System.out.println("Welcome to the Interest Calculator App");
 			System.out.println(" ");
-			// get input from the user
+			// get input from the user 2 inputs: loan amt and interest rate
 			System.out.println("Enter loan amount");
 			double loan = sc.nextDouble();
 			NumberFormat currency = NumberFormat.getCurrencyInstance();
@@ -39,9 +39,9 @@ public class InterestCalculatorApp {
 			System.out.print("Continue? (y/n): ");
 			choice = sc.next();
 			System.out.println();
-			System.out.println("Goodbye :)");
-			sc.close();
+			
 
-		}
+		} System.out.println("Goodbye :)");
+		sc.close();
 	}
 }
