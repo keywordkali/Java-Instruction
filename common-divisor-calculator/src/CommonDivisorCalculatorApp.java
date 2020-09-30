@@ -22,7 +22,7 @@ public class CommonDivisorCalculatorApp {
 			// else
 			// num2 = num2 - num1;
 			// }
-			while (x > 0) {      //what we did in class
+			while (x > 0) { // what we did in class
 				while (y >= x) {
 					y -= x;
 				}
@@ -30,16 +30,15 @@ public class CommonDivisorCalculatorApp {
 				y = x;
 				x = tempY;
 			}
-			
-			System.out.printf("GCD of the two numbers is: " +y);
+
+			System.out.printf("GCD of the two numbers is: " + y);
 			System.out.println();
 			System.out.print("Continue? (y/n): ");
 			choice = sc.next();
 			System.out.println();
 			System.out.println("Goodbye :)");
-			
 
 		}
 		sc.close();
-	} 
+	}
 }
