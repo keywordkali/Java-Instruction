@@ -10,6 +10,13 @@ public class Console {
         sc.nextLine();  // discard any other data entered on the line
         return s;
     }
+    public static String getLine(String prompt) {
+        System.out.print(prompt);
+        String s = sc.nextLine();  // read user entry
+        //dont need to discard data when we want the whole line
+        //sc.nextLine();  // discard any other data entered on the line
+        return s;
+    }
 
     public static int getInt(String prompt) {
         int i = 0;
