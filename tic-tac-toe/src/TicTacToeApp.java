@@ -49,7 +49,7 @@ public class TicTacToeApp {
 			System.out.println("position taken! Enter a correct postion.");
 			cpuPos = rand.nextInt(9) + 1;
 			
-		}
+		} 
 		
 		
 		
