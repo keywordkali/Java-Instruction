@@ -1,3 +1,4 @@
+
 import java.text.NumberFormat;
 
 import ui.console.Console;
@@ -5,24 +6,25 @@ import ui.console.Console;
 public class AccountBalanceCalculatorApp {
 
 	public AccountBalanceCalculatorApp() {
-		
+
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to account balance calculator!");
-		
+
 		String choice = "y";
-		CheckingAccount ca = new CheckingAccount(1000, 1);
+		CheckingAccount ca = new CheckingAccount(1000, 1);// declare the bank balances
 		SavingsAccount sa = new SavingsAccount(1000, .01);
 
 		System.out.println("Starting Balances:");
-		printAccountBalances(ca, sa);
+		printAccountBalances(ca, sa);// to create this after printing the line above this, right click go under
+										// refactor> extract method.
 
 		System.out.println("Enter transactions for the month:");
 		while (choice.equalsIgnoreCase("y")) {
-			String txn = Console.getString("(w)ithdrawal or (d)eposit?");
-			String acct = Console.getString("(c)hecking or (s)avings?");
-			double amt = Console.getDouble("Amount?", 0, Double.POSITIVE_INFINITY);
+			String txn = Console.getString("withdrawal or deposit?(w/d)");
+			String acct = Console.getString("checking or savings? (c/s)");
+			double amt = Console.getDouble("Amount?", 1, Double.POSITIVE_INFINITY);
 
 			Account a = null;
 			if (acct.equalsIgnoreCase("c"))
@@ -37,7 +39,7 @@ public class AccountBalanceCalculatorApp {
 
 			choice = Console.getLine("Continue?");
 		}
-	
+
 		sa.applyPaymentToBalance();
 		ca.subtractMonthlyFee();
 

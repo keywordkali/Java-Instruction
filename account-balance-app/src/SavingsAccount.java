@@ -1,4 +1,3 @@
-
 public class SavingsAccount extends Account {
 private double monthlyInterestRate;
 private double monthlyInterestPayment;

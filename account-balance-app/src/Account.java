@@ -1,4 +1,5 @@
 
+
 public class Account implements Depositable, Withdrawable, Balanceable {
 
 	protected double balance;
@@ -14,7 +15,7 @@ public class Account implements Depositable, Withdrawable, Balanceable {
 	
 	@Override
 	public double getBalance() {
-		// TODO Auto-generated method stub
+		
 		return balance;
 	}
 
