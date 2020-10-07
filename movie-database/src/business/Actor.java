@@ -1,14 +1,15 @@
+package business;
 
 public class Actor {
-
-	private static String actorFirstName; // define instance variables
-	private static String actorLastName;
-	private static String actorGender;
-	private static String actorBirthdate;
+	private   int    actorID;
+	private   String actorFirstName; // define instance variables
+	private   String actorLastName;
+	private   String actorGender;
+	private   String actorBirthdate;
 
 	// define empty constrictor
 	public Actor() {
-
+		
 		actorFirstName = "";
 		actorLastName = "";
 		actorGender = "";
@@ -20,12 +21,22 @@ public class Actor {
 		this.actorFirstName = actorFirstName;
 	}
 
-	public Actor(String actorFirstName, String actorLastName, String actorGender, String actorBirthdate) {
+	public Actor(int actorID, String actorFirstName, String actorLastName, String actorGender,
+			String actorBirthdate) {
 		super();
+		this.actorID = actorID;
 		this.actorFirstName = actorFirstName;
 		this.actorLastName = actorLastName;
 		this.actorGender = actorGender;
 		this.actorBirthdate = actorBirthdate;
+	}
+
+	public int getActorID() {
+		return actorID;
+	}
+
+	public void setActorID(int actorID) {
+		this.actorID=actorID;
 	}
 
 	public String getActorFirstName() {
@@ -60,13 +71,14 @@ public class Actor {
 		this.actorBirthdate = actorBirthdate;
 	}
 
-	public static String displayActor() {
+	public String displayActor() {
 		String str = "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n";
 		str += "-+-+-+-+-+-+-+-+-+-+-Actor-+-+-+-+-+-+-+-+-+-+-+-+-+\n";
 		str += "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-\n";
+		str += "Actor ID: \t\t\t" + actorID + " " + "\n";
 		str += "Actor Name:\t\t" + actorFirstName + " " + actorLastName + "\n";
-		str += "Gender:\t\t\t\t" + actorGender + "\n";
-		str += "Birthdate:\t\t" + actorBirthdate + "\n";
+		str += "Gender:\t\t\t\t" + (actorGender.equalsIgnoreCase("M")?"Male":"Female") + "\n";
+		str += "Born on:\t\t" + actorBirthdate + "\n";
 		str += "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n";
 
 		return str;

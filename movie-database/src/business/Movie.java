@@ -1,13 +1,14 @@
+package business;
 
 public class Movie {
-
+	private int movieID;
 	private String movieTitle; // define instance variables
 	private String movieGenre;
 	private String dateReleased;
 	private String rating;
 
 	public Movie() { // define empty constructor
-
+		
 		movieTitle = "";
 		movieGenre = "";
 		dateReleased = "";
@@ -19,14 +20,23 @@ public class Movie {
 		this.movieTitle = movieTitle;
 	}
 
-	public Movie(String movieTitle, String movieGenre, String dateReleased, String rating) {
+	public Movie(int movieID,String movieTitle, String movieGenre, String dateReleased, String rating) {
 		super();
+		this.movieID = movieID;
 		this.movieTitle = movieTitle;
 		this.movieGenre = movieGenre;
 		this.dateReleased = dateReleased;
 		this.rating = rating;
 	}
+
 // define getters and setters
+	public int getMovieID() {
+		return movieID;
+	}
+
+	public void setMovieID(int movieID) {
+		this.movieID=movieID;
+	}
 
 	public String getMovieTitle() {
 		return movieTitle;
@@ -64,6 +74,7 @@ public class Movie {
 		String str = "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n";
 		str += "-+-+-+-+-+-+-+-+-+-+-+-+-Movie-+-+-+-+-+-+-+-+-+-+-+-+-+\n";
 		str += "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-+-\n";
+		str += "Movie ID:\t\t" + movieID+"\n";
 		str += "Movie Title:\t\t" + movieTitle + "\n";
 		str += "Movie Genre:\t\t" + movieGenre + "\n";
 		str += "Date Released:\t\t" + dateReleased + "\n";
