@@ -14,25 +14,11 @@ public class MovieDatabaseApp {
 	private static List<Actor> actors = new ArrayList<>(100);
 
 	public static void main(String[] args) {
-		// Movie m1 = new Movie(1,"Star Wars", "Sci-fi", "1977", "PG");
-		// Movie m2 = new Movie(2,"Star Trek", "Sci-fi", "1980", "G");
-		// Movie m3 = new Movie(3,"Gone With The Wind", "Musical", "1960", "G");
 
-		// movies[0]=m1;
-		// movies[1]=m2;
-		// movies[2]=m3;
 		movies.add(new Movie(1, "Star Wars", "Sci-fi", "1977", "PG"));
 		movies.add(new Movie(2, "Star Trek", "Sci-fi", "1980", "G"));
 		movies.add(new Movie(3, "Gone With The Wind", "Musical", "1960", "G")); // java needs to be told your adding
 																				// something new
-
-		// Actor a1 = new Actor(1, "Mark", "Hamill", "M", "09-25-1951");
-		// Actor a2 = new Actor(2, "Whoopie ", "Goldberg", "F", "11-13-1955");
-		// Actor a3 = new Actor(3, "Clark", "Gable", "M", "02-01-1901");
-
-		// actors[0]=a1;
-		// actors[1]=a2;
-		// actors[2]=a3;
 
 		actors.add(new Actor(1, "Mark", "Hamill", "M", "09-25-1951"));// actors and movies have to be plural because the
 																		// variable name is plural
@@ -45,7 +31,6 @@ public class MovieDatabaseApp {
 			System.out.println("Command Menu:");
 			int response = Console.getInt("Add Actor\n Add Movie \n List Actors \n "
 					+ "Find Actor \n List Movies \n Find Movie \n Exit \n (1/2/3/4/5/6/7):");
-			response = Console.getInt("Response: ");
 			System.out.println();
 
 			switch (response) {
