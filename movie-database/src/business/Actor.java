@@ -1,75 +1,106 @@
 package business;
 
+import java.time.LocalDate;
+
 public class Actor {
 	private   int    actorID;
 	private   String actorFirstName; // define instance variables
 	private   String actorLastName;
 	private   String actorGender;
-	private   String actorBirthdate;
+	private   LocalDate actorBirthdate;
 
-	// define empty constrictor
-	public Actor() {
-		
-		actorFirstName = "";
-		actorLastName = "";
-		actorGender = "";
-		actorBirthdate = "";
 
-	} // define fully loaded constrictor
 
-	public void setactorFirstName(String actorFirstName) {
-		this.actorFirstName = actorFirstName;
-	}
 
-	public Actor(int actorID, String actorFirstName, String actorLastName, String actorGender,
-			String actorBirthdate) {
-		super();
-		this.actorID = actorID;
-		this.actorFirstName = actorFirstName;
-		this.actorLastName = actorLastName;
-		this.actorGender = actorGender;
-		this.actorBirthdate = actorBirthdate;
-	}
+	
+	public Actor(int actorID, String actorFirstName, String actorLastName, String actorGender, LocalDate actorBirthdate) {
+	super();
+	this.actorID = actorID;
+	this.actorFirstName = actorFirstName;
+	this.actorLastName = actorLastName;
+	this.actorGender = actorGender;
+	this.actorBirthdate = actorBirthdate;
+}
+
+
+
 
 	public int getActorID() {
 		return actorID;
 	}
 
+
+
+
 	public void setActorID(int actorID) {
-		this.actorID=actorID;
+		this.actorID = actorID;
 	}
+
+
+
 
 	public String getActorFirstName() {
 		return actorFirstName;
 	}
 
+
+
+
 	public void setActorFirstName(String actorFirstName) {
 		this.actorFirstName = actorFirstName;
 	}
+
+
+
 
 	public String getActorLastName() {
 		return actorLastName;
 	}
 
+
+
+
 	public void setActorLastName(String actorLastName) {
 		this.actorLastName = actorLastName;
 	}
+
+
+
 
 	public String getActorGender() {
 		return actorGender;
 	}
 
+
+
+
 	public void setActorGender(String actorGender) {
 		this.actorGender = actorGender;
 	}
 
-	public String getActorBirthdate() {
+
+
+
+	public LocalDate getActorBirthdate() {
 		return actorBirthdate;
 	}
 
-	public void setActorBirthdate(String actorBirthdate) {
+
+
+
+	public void setActorBirthdate(LocalDate actorBirthdate) {
 		this.actorBirthdate = actorBirthdate;
 	}
+
+
+
+
+	public Actor() {
+		super();
+	}
+
+
+
 
 	public String displayActor() {
 		String str = "-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n";

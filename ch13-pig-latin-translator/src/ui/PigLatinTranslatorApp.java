@@ -41,7 +41,7 @@ public class PigLatinTranslatorApp {
 
 					if (!hasSymbol) {
 						// words that start with vowels
-						if (w.startsWith("a") || w.startsWith("e") || w.startsWith("i") || w.startsWith("0")
+						if (w.startsWith("a") || w.startsWith("e") || w.startsWith("i") || w.startsWith("o")
 								|| w.startsWith("u")) {
 							w += "way";
 						} else {

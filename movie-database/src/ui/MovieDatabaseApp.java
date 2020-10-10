@@ -1,5 +1,6 @@
 package ui;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +21,10 @@ public class MovieDatabaseApp {
 		movies.add(new Movie(3, "Gone With The Wind", "Musical", "1960", "G")); // java needs to be told your adding
 																				// something new
 
-		actors.add(new Actor(1, "Mark", "Hamill", "M", "09-25-1951"));// actors and movies have to be plural because the
-																		// variable name is plural
-		actors.add(new Actor(2, "Whoopie ", "Goldberg", "F", "11-13-1955"));
-		actors.add(new Actor(3, "Clark", "Gable", "M", "02-01-1901"));
+//		actors.add(new Actor(1, "Mark", "Hamill", "M", LocalDate.parse("1951-09-25")));// actors and movies have to be plural because the
+//																		// variable name is plural
+//		actors.add(new Actor(2, "Whoopie ", "Goldberg", "F", "11-13-1955"));
+//		actors.add(new Actor(3, "Clark", "Gable", "M", "02-01-1901"));
 
 		int command = 0;
 
@@ -42,8 +43,8 @@ public class MovieDatabaseApp {
 				String ln = Console.getString("Last Name?: ");
 				String g = Console.getString("Gender?: ");
 				String bd = Console.getString("Birth Date?: ");
-
-				Actor actor = new Actor(id, fn, ln, g, bd);
+				LocalDate ld = LocalDate.parse(bd);
+				Actor actor = new Actor(id, fn, ln, g, ld);
 				actors.add(actor);
 
 				System.out.println("Actor Added!");
