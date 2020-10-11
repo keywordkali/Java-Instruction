@@ -1,13 +1,8 @@
 package db;
-
 import java.io.*;
-
 import java.nio.file.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import business.Actor;
 import business.Movie;
 import db.DAO;
 
@@ -19,7 +14,7 @@ public class MovieTextFile implements DAO<Movie> {
 
 	public MovieTextFile() {
 		
-		moviesPath = Paths.get("Macintosh HD/Users/keywordkali/repos/Java-Instruction/movies.txt");
+		moviesPath = Paths.get("movies.txt");
 		moviesFile = moviesPath.toFile();
 		movies = getAll();
 	}

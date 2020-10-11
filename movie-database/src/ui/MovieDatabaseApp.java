@@ -6,6 +6,8 @@ import java.util.List;
 
 import business.Actor;
 import business.Movie;
+import db.ActorTextFile;
+import db.MovieTextFile;
 import ui.console.Console;
 
 public class MovieDatabaseApp {
@@ -13,12 +15,15 @@ public class MovieDatabaseApp {
 	private static List<Movie> movies = new ArrayList<>(100); // movies and actors is the variable name
 
 	private static List<Actor> actors = new ArrayList<>(100);
+	
+	static ActorTextFile atf = new ActorTextFile();
+	static MovieTextFile mtf = new MovieTextFile();
 
 	public static void main(String[] args) {
 
-		movies.add(new Movie(1, "Star Wars", "Sci-fi", "1977", "PG"));
-		movies.add(new Movie(2, "Star Trek", "Sci-fi", "1980", "G"));
-		movies.add(new Movie(3, "Gone With The Wind", "Musical", "1960", "G")); // java needs to be told your adding
+		//movies.add(new Movie(1, "Star Wars", "Sci-fi", "1977", "PG"));
+		//movies.add(new Movie(2, "Star Trek", "Sci-fi", "1980", "G"));
+	///	movies.add(new Movie(3, "Gone With The Wind", "Musical", "1960", "G")); // java needs to be told your adding
 																				// something new
 
 
@@ -41,7 +46,14 @@ public class MovieDatabaseApp {
 				String bd = Console.getString("Birth Date?: ");
 				LocalDate ld = LocalDate.parse(bd);
 				Actor actor = new Actor(id, fn, ln, g, ld);
-				actors.add(actor);
+				if(atf.add(actor)) {
+					 System.out.println("Actor added successfully!");
+					}
+					else {
+						System.out.println("Issue adding actor.");
+					}
+					System.out.println();
+				
 
 				System.out.println("Actor Added!");
 				System.out.println(actor.displayActor());
@@ -83,10 +95,21 @@ public class MovieDatabaseApp {
 				String gr = Console.getLine("Genre? ");
 
 				Movie movie = new Movie(i, t, y, r, gr);
+				if(mtf.add(movie)) {
+					 System.out.println("Movie added successfully!");
+					}
+					else {
+						System.out.println("Issue adding movie.");
+					}
+					System.out.println();
+				
+
+				System.out.println("Movie Added!");
 				System.out.println(movie.displayMovie());
 				System.out.println();
 				break;
 
+				
 			case 5:
 				// list Movies
 				System.out.println("List of all Movies");
