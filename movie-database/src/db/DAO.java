@@ -13,5 +13,6 @@ public interface DAO<T> {
  boolean update(T t);
  boolean delete(T t);
 
-Actor get(int i); 
+
+ 
 }

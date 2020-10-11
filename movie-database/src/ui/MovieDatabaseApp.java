@@ -21,17 +21,13 @@ public class MovieDatabaseApp {
 		movies.add(new Movie(3, "Gone With The Wind", "Musical", "1960", "G")); // java needs to be told your adding
 																				// something new
 
-//		actors.add(new Actor(1, "Mark", "Hamill", "M", LocalDate.parse("1951-09-25")));// actors and movies have to be plural because the
-//																		// variable name is plural
-//		actors.add(new Actor(2, "Whoopie ", "Goldberg", "F", "11-13-1955"));
-//		actors.add(new Actor(3, "Clark", "Gable", "M", "02-01-1901"));
 
 		int command = 0;
 
 		while (command != 7) {
 			System.out.println("Command Menu:");
-			int response = Console.getInt("Add Actor\n Add Movie \n List Actors \n "
-					+ "Find Actor \n List Movies \n Find Movie \n Exit \n (1/2/3/4/5/6/7):");
+			int response = Console.getInt("1-Add Actor\n 2-List Actors \n 3-Find Actor \n "
+					+ "4-Add Movie \n 5-List Movies \n 6-Find Movie \n 7-Exit ");
 			System.out.println();
 
 			switch (response) {

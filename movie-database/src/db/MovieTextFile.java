@@ -17,13 +17,13 @@ public class MovieTextFile implements DAO<Movie> {
 	private File moviesFile = null;
 	private final String FIELD_SEP = "\t";
 
-	public MovieTextFile() { 
-		moviesPath = Paths.get("movies.txt");
+	public MovieTextFile() {
+		
+		moviesPath = Paths.get("Macintosh HD/Users/keywordkali/repos/Java-Instruction/movies.txt");
 		moviesFile = moviesPath.toFile();
 		movies = getAll();
 	}
 
-	@Override
 	public Movie get(int i) {
 		// TODO Auto-generated method stub
 		return null;
@@ -43,13 +43,13 @@ public class MovieTextFile implements DAO<Movie> {
 				String line = in.readLine();
 				while (line != null) {
 					String[] fields = line.split(FIELD_SEP);
-					String    movieID = Integer.parseInt(fields[0]);
+					int movieID = Integer.parseInt(fields[0]);
 					String movieTitle = fields[1];
 					String movieGenre = fields[2];
 					String dateReleased = fields[3];
-					String rating = fields [4];
-					int mID = Integer.parseInt(movieID);
-					Movie m = new Movie(movieID, movieTitle, movieGenre, dateReleased, rating, mID);
+					String rating = fields[4];
+					
+					Movie m = new Movie(movieID, movieTitle, movieGenre, dateReleased, rating);
 					movies.add(m);
 					line = in.readLine();
 				}
@@ -114,5 +114,3 @@ public class MovieTextFile implements DAO<Movie> {
 		return null;
 	}
 }
-
-	

@@ -1,14 +1,11 @@
 package db;
-
 import java.io.*;
-
 import java.nio.file.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.time.LocalDate;
 import business.Actor;
-import db.DAO;
+
 
 public class ActorTextFile implements DAO<Actor> {
 	private List<Actor> actors = null;
@@ -22,7 +19,6 @@ public class ActorTextFile implements DAO<Actor> {
 		actors = getAll();
 	}
 
-	@Override
 	public Actor get(int i) {
 		// TODO Auto-generated method stub
 		return null;
