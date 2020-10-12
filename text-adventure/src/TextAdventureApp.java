@@ -77,7 +77,7 @@ public class TextAdventureApp {
 					System.out.println("\t You run away from the " + enemy + "!");
 					continue GAME;
 				} else {
-					System.out.println("\t Invalit Command");
+					System.out.println("\t Invalid Command");
 
 				}
 
@@ -89,12 +89,12 @@ public class TextAdventureApp {
 			}
 
 			System.out.println("-----------------------------------");
-			System.out.println(" # " + enemy + "was defeated! #");
-			System.out.println(" # You have " + health + "HP left. #");
+			System.out.println(" # " + enemy + " was defeated! #");
+			System.out.println(" # You have " + health + " HP left. #");
 			if (rand.nextInt(100) < healthPotionsDropChance) {
 				numHealthPotions++;
-				System.out.println("# The " + enemy + "dropped a health potion! # ");
-				System.out.println("# You now have " + numHealthPotions + "Health potions. #");
+				System.out.println("# The " + enemy + " dropped a health potion! # ");
+				System.out.println("# You now have " + numHealthPotions + " Health potions. #");
 
 			}
 			System.out.println("-----------------------------------");
