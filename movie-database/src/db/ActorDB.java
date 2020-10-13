@@ -10,7 +10,7 @@ import business.Actor;
 public class ActorDB implements DAO<Actor> {
 
 	private Connection getConnection() throws SQLException {
-		String dbURL = "jdbc:mysql://localhost:3306/bmdb";
+		String dbURL = "jdbc:mysql://localhost:3306/bmdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
 		String username = "bmdb_user";
 		String password = "sesame";
 
@@ -43,7 +43,7 @@ public class ActorDB implements DAO<Actor> {
 		String sql = "insert into actor values " + "(?,?,?,?,?)";
 
 		try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setInt(1, a.getActorID());
+		
 			ps.setString(2, a.getActorFirstName());
 			ps.setString(1, a.getActorLastName());
 			ps.setString(1, a.getActorGender());
@@ -86,7 +86,7 @@ public class ActorDB implements DAO<Actor> {
 	@Override
 	public boolean delete(Actor a) {
 		boolean success = false;
-		String sql = "delete from actor"+
+		String sql = "delete from actor "+
 				"where id = ?";
 		try (Connection conn = getConnection();
 				 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -115,14 +115,14 @@ public class ActorDB implements DAO<Actor> {
 				actor.add(a);
 
 			}
+			rs.close();
 
 		} catch (SQLException e) {
 			System.out.println("Error getting all actors!");
 			e.printStackTrace();
 			actor = null;
 		}
-
-		return null;
+		return actor;
 	}
 
 	private Actor getActorFromResultSet(ResultSet rs) throws SQLException {
@@ -132,7 +132,7 @@ public class ActorDB implements DAO<Actor> {
 		String g = rs.getString(4);
 		String bdStr = rs.getString(5);
 		LocalDate bd = LocalDate.parse(bdStr);
-		Actor a = new Actor(actorID, fn, ln, g, bd);
+		Actor a = new Actor( fn, ln, g, bd);
 		return a;
 	}
 

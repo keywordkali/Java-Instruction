@@ -43,7 +43,7 @@ public class MovieDatabaseApp {
 				String g = Console.getString("Gender?: ");
 				String bd = Console.getString("Birth Date?: ");
 				LocalDate ld = LocalDate.parse(bd);
-				Actor actor = new Actor(id, fn, ln, g, ld);
+				Actor actor = new Actor( fn, ln, g, ld);
 				if (actorDAO.add(actor)) {
 					System.out.println("Actor added successfully!");
 				} else {
@@ -69,14 +69,16 @@ public class MovieDatabaseApp {
 
 			case 3:
 				// find Actor
-				System.out.println("*** Not yet implemented**");
-				// id = Console.getInt("Actor ID?");
-				// for (Actor a : actors) {
-				// if (a != null && a.getActorID() == id) {
-				// System.out.println("Actor Found!");
-				// System.out.println(a.displayActor());
-				// System.out.println();
-
+				System.out.println("Find an Actor by ID:");
+				int a = Console.getInt("ID? ");
+				Actor ac = actorDAO.get(a);
+				if (ac != null) {
+					System.out.println(ac.displayActor());
+				}
+				else {
+					System.out.println("No actor found for id: "+a);
+				}
+				System.out.println();
 				break;
 
 			case 4:
@@ -130,18 +132,19 @@ public class MovieDatabaseApp {
 				// prompt user for id to delete use console class
 				// get the actor for that id / actorDAO.get
 				// delete the actor /actorDAO.delete
-				System.out.println("Delete an actor");
-		        int actorID = Console.getInt("Enter Movie ID to delete it: ");
-				Actor a  = actorDAO.get(actorID); {
+				System.out.println("Delete an actor by ID");
+		        int  actorID = Console.getInt("Enter Movie ID to delete it: ");
+				
+		      Actor act = actorDAO.get(actorID); {
 				if (actorDAO != null) {
-					boolean success = actorDAO.delete(actorID);
+					boolean success = actorDAO.delete(act);
 					if (success) {
-						System.out.println(actor.displayActor() + " has been deleted from the database.\n");
+						System.out.println(act.displayActor() + " has been deleted from the database.\n");
 					} else {
 						System.out.println("Error! Unable to delete actor.\n");
 					}
 				} else {
-					System.out.println("No product matches that code.\n");
+					System.out.println("No actor matches that ID.\n");
 					break;
 				}
 			}

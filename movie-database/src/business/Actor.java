@@ -13,9 +13,9 @@ public class Actor {
 
 
 	
-	public Actor(int actorID, String actorFirstName, String actorLastName, String actorGender, LocalDate actorBirthdate) {
+	public Actor( String actorFirstName, String actorLastName, String actorGender, LocalDate actorBirthdate) {
 	super();
-	this.actorID = actorID;
+	
 	this.actorFirstName = actorFirstName;
 	this.actorLastName = actorLastName;
 	this.actorGender = actorGender;

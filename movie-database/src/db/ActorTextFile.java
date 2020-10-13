@@ -45,7 +45,7 @@ public class ActorTextFile implements DAO<Actor> {
 					String actorGender = fields[3];
 					String actorBirthdate = fields [4];
 					LocalDate bd = LocalDate.parse(actorBirthdate);
-					Actor a = new Actor(actorID, actorFirstName, actorLastName, actorGender, bd);
+					Actor a = new Actor( actorFirstName, actorLastName, actorGender, bd);
 					actor.add(a);
 					line = in.readLine();
 				}
