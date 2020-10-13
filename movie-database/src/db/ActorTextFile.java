@@ -19,7 +19,7 @@ public class ActorTextFile implements DAO<Actor> {
 		actor = getAll();
 	}
 
-	public Actor get(int i) {
+	public Actor get(int actorID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -38,7 +38,8 @@ public class ActorTextFile implements DAO<Actor> {
 				String line = in.readLine();
 				while (line != null) {
 					String[] fields = line.split(FIELD_SEP);
-					int    actorID = Integer.parseInt(fields[0]);
+					String actorIDstr = fields[0];
+					int    actorID = Integer.parseInt(actorIDstr);
 					String actorFirstName = fields[1];
 					String actorLastName = fields[2];
 					String actorGender = fields[3];
@@ -92,8 +93,8 @@ public class ActorTextFile implements DAO<Actor> {
 			for (Actor a : actor) {
 				out.print(a.getActorID() + FIELD_SEP);
 				out.print(a.getActorFirstName() + FIELD_SEP);
-				out.println(a.getActorFirstName());
-				out.println(a.getActorGender());
+				out.print(a.getActorLastName()+FIELD_SEP);
+				out.print(a.getActorGender()+FIELD_SEP);
 				out.println(a.getActorBirthdate());
 			}
 			return true;
@@ -103,10 +104,7 @@ public class ActorTextFile implements DAO<Actor> {
 		}
 	}
 
-	@Override
-	public Actor get(String code) {
-		// TODO Auto-generated method stub
-		return null;
+	
 	}
 
-}
+

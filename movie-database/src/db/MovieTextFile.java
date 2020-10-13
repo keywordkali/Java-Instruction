@@ -7,19 +7,18 @@ import business.Movie;
 import db.DAO;
 
 public class MovieTextFile implements DAO<Movie> {
-	private List<Movie> movies = null;
-	private Path moviesPath = null;
-	private File moviesFile = null;
+	private List<Movie> movie = null;
+	private Path moviePath = null;
+	private File movieFile = null;
 	private final String FIELD_SEP = "\t";
 
 	public MovieTextFile() {
-		
-		moviesPath = Paths.get("movies.txt");
-		moviesFile = moviesPath.toFile();
-		movies = getAll();
+		moviePath = Paths.get("movie.txt");
+		movieFile = moviePath.toFile();
+		movie = getAll();
 	}
 
-	public Movie get(int i) {
+	public Movie get(int movieID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -27,12 +26,12 @@ public class MovieTextFile implements DAO<Movie> {
 	// get all products from text file if our list is null
 	@Override
 	public List<Movie> getAll() {
-		if (movies != null) {
-			return movies;
+		if (movie != null) {
+			return movie;
 		}
-		movies = new ArrayList<>();
-		if (Files.exists(moviesPath)) {
-			try (BufferedReader in = new BufferedReader(new FileReader(moviesFile))) {
+		movie = new ArrayList<>();
+		if (Files.exists(moviePath)) {
+			try (BufferedReader in = new BufferedReader(new FileReader(movieFile))) {
 
 				// read products from file into our list
 				String line = in.readLine();
@@ -43,9 +42,8 @@ public class MovieTextFile implements DAO<Movie> {
 					String movieGenre = fields[2];
 					String dateReleased = fields[3];
 					String rating = fields[4];
-					
 					Movie m = new Movie(movieID, movieTitle, movieGenre, dateReleased, rating);
-					movies.add(m);
+					movie.add(m);
 					line = in.readLine();
 				}
 			} catch (IOException ioe) {
@@ -54,17 +52,17 @@ public class MovieTextFile implements DAO<Movie> {
 			}
 
 		} else {
-			System.out.println(moviesPath.toAbsolutePath() + " doesn't exist.");
+			System.out.println(moviePath.toAbsolutePath() + " doesn't exist.");
 			return null;
 		}
 
-		return movies;
+		return movie;
 	}
 
 	@Override
 
 	public boolean add(Movie m) {
-		movies.add(m);
+		movie.add(m);
 		return saveAll();
 	}
 
@@ -72,28 +70,28 @@ public class MovieTextFile implements DAO<Movie> {
 	public boolean update(Movie m) {
 		// get old product and remove it
 		Movie oldMovie = this.get(m.getMovieID());
-		int i = movies.indexOf(oldMovie);
-		movies.remove(i);
-		movies.add(i, m);
+		int i = movie.indexOf(oldMovie);
+		movie.remove(i);
+		movie.add(i, m);
 		return saveAll();
 	}
 
 	@Override
 	public boolean delete(Movie m) {
-		movies.remove(m);
+		movie.remove(m);
 		return saveAll();
 	}
 
 	private boolean saveAll() {
 		// after every maintenance (add, update, delete) function,
 		// rewrite the text file
-		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(moviesFile)))) {
+		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(movieFile)))) {
 			// write all products in the list to the file
-			for (Movie m : movies) {
+			for (Movie m : movie) {
 				out.print(m.getMovieID() + FIELD_SEP);
 				out.print(m.getMovieTitle() + FIELD_SEP);
-				out.println(m.getMovieGenre());
-				out.println(m.getDateReleased());
+				out.print(m.getMovieGenre()+ FIELD_SEP);
+				out.print(m.getDateReleased()+ FIELD_SEP);
 				out.println(m.getRating());
 			}
 			return true;
@@ -103,9 +101,5 @@ public class MovieTextFile implements DAO<Movie> {
 		}
 	}
 
-	@Override
-	public Movie get(String movieID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

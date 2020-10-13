@@ -1,9 +1,1 @@
-1	Clark	Clark
-M
-1901-02-01
-2	Whoopie	Whoopie
-F
-1955-11-13
-3	Mark	Mark
-M
-1951-09-25
+1	Mark	Hamill	M	1955-03-02
