@@ -136,6 +136,12 @@ import business.Movie;
 			
 		}
 
+		@Override
+		public List<Movie> findByLastName(String string) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 
 

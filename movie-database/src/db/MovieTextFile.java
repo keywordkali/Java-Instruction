@@ -101,5 +101,11 @@ public class MovieTextFile implements DAO<Movie> {
 		}
 	}
 
+	@Override
+	public List<Movie> findByLastName(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

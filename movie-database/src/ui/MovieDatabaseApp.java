@@ -30,7 +30,7 @@ public class MovieDatabaseApp {
 		while (command != 7) {
 			System.out.println("Command Menu:");
 			int response = Console.getInt("1-Add Actor\n 2-List Actors \n 3-Find Actor \n "
-					+ "4-Add Movie \n 5-List Movies \n 6-Find Movie \n 7-Delete Actor\n8-Exit ");
+					+ "4- Find Actor by last name "+"5-Add Movie \n 6-List Movies \n 7-Find Movie \n 8-Delete Actor\n9-Exit ");
 			System.out.println();
 
 			switch (response) {
@@ -80,8 +80,25 @@ public class MovieDatabaseApp {
 				}
 				System.out.println();
 				break;
-
+				
 			case 4:
+				// find Actor for last name
+				//prompt for last name
+			////need method find by last name call list <Actor> actor.DB.FindByLastName(String lName)
+				// - findByLastName - should be able to base this on getAll method
+				// print the list of actors with the same last name
+				System.out.println("Find all Actors with this last name:");
+				String actorln = Console.getString("Last name? ");
+				List<Actor> aln = actorDAO.findByLastName(actorln);
+				for (Actor act : aln) {
+					if (act != null) {
+					System.out.println(act.displayActor());
+				}
+				}
+				System.out.println();
+				break;
+
+			case 5:
 				// add Movies
 				System.out.println("Add a Movie: ");
 				int i = Console.getInt("Movie ID ");
@@ -103,7 +120,7 @@ public class MovieDatabaseApp {
 				System.out.println();
 				break;
 
-			case 5:
+			case 6:
 				// list Movies
 				System.out.println("List of all Movies");
 				for (Movie m : movieDAO.getAll()) {
@@ -115,7 +132,7 @@ public class MovieDatabaseApp {
 				System.out.println();
 				break;
 
-			case 6:
+			case 7:
 				// find Movie
 				System.out.println("**Not implemented yet**");
 				// id = Console.getInt("Movie ID?");
@@ -127,7 +144,7 @@ public class MovieDatabaseApp {
 				System.out.println();
 				break;
 
-			case 7:
+			case 8:
 				// delete an actor
 				// prompt user for id to delete use console class
 				// get the actor for that id / actorDAO.get
@@ -149,7 +166,7 @@ public class MovieDatabaseApp {
 				}
 			}
 
-			case 8:
+			case 9:
 				// exit
 				break;
 			default:
