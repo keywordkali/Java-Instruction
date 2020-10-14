@@ -117,7 +117,7 @@ public class UserDB implements DAO<User> {
 
 	@Override
 	public List<User> getAll() {
-		List<User> actor = new ArrayList<>();
+		List<User> user = new ArrayList<>();
 
 		String sql = "select * from user;";
 		try (Connection conn = getConnection();
@@ -126,7 +126,7 @@ public class UserDB implements DAO<User> {
 			// p681 - process result set
 			while (rs.next()) {
 				User u = getUserFromResultSet(rs);
-				actor.add(u);
+				user.add(u);
 
 			}
 			
@@ -136,7 +136,7 @@ public class UserDB implements DAO<User> {
 			e.printStackTrace();
 			user = null;
 		}
-		return un;
+		return user;
 	}
 	
 	private User getUserFromResultSet(ResultSet rs) throws SQLException {
@@ -144,14 +144,14 @@ public class UserDB implements DAO<User> {
 		String un = rs.getString(2);
 		String ps = rs.getString(3);
 		String fn = rs.getString(4);
-		String ln = rs.getString(4);
-		String pn = rs.getString(4);
-		String em = rs.getString(4);
-		String ir = rs.getString(4);
-		String ia = rs.getString(4);
+		String ln = rs.getString(5);
+		String pn = rs.getString(6);
+		String em = rs.getString(7);
+		Boolean ir = rs.getBoolean(8);
+		Boolean ia = rs.getBoolean(9);
 		//String bdStr = rs.getString(5);
 		//LocalDate bd = LocalDate.parse(bdStr);
-		 User u = new User(un,ps,fn,ln,pn,em,ir,ia);
+		 User u = new User(userID,un,ps,fn,ln,pn,em,ir,ia);
 		return u;
 	}
 	@Override

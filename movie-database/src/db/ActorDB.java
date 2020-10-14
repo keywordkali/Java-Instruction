@@ -137,7 +137,7 @@ public class ActorDB implements DAO<Actor> {
 	}
 	@Override
 	public List<Actor> findByLastName(String lName) {
-		List<Actor> actors = new ArrayList<>();
+		List<Actor> actors = new ArrayList<>(); //p679
 		String sql = "SELECT * FROM actor where LastName = ?";
 		try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
 			ps.setString(1, lName);

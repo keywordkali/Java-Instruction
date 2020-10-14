@@ -88,10 +88,12 @@ public class MovieDatabaseApp {
 				// - findByLastName - should be able to base this on getAll method
 				// print the list of actors with the same last name
 				System.out.println("Find all Actors with this last name:");
-				String actorln = Console.getString("Last name? ");
+				String actorln = Console.getRequiredString("Last name? ");
 				List<Actor> aln = actorDAO.findByLastName(actorln);
+				System.out.println("Actors");
 				for (Actor act : aln) {
-					if (act != null) {
+					if (aln.size() == 0) {
+						System.out.println("No actors with that last name "+aln);
 					System.out.println(act.displayActor());
 				}
 				}
