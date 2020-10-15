@@ -23,23 +23,23 @@ public class StreamsProcessingApp {
 
 		// collect filtered elements
 		List<Contact> contactsNoPhone = contacts.stream().filter(c -> c.getPhone() == null)
-				.collect(Collectors.toList());
-		System.out.println("There are "+contactsNoPhone.size()+" contacts with no phone number.");
+				.filter(c -> c.getPhone() == null).collect(Collectors.toList());
+		System.out.println("There are " + contactsNoPhone.size() + " contacts with no phone number.");
 
-		//mP - 719
-		List<String> contactNames = contacts.stream()
-				.map(c -> c.getName())
-				.collect(Collectors.toList());
+		// mP - 719
+		List<String> contactNames = contacts.stream().map(c -> c.getName()).collect(Collectors.toList());
 		contactNames.stream().forEach(str -> System.out.println(str));
-		
+
 		System.out.println(" the double colon operator ");
-		contactNames = contacts.stream()
-				.map(Contact::getName)
-				.collect(Collectors.toList());
+		contactNames = contacts.stream().map(Contact::getName).collect(Collectors.toList());
 		contactNames.stream().forEach(System.out::println);
-		
-		
-		
+
+		// map & reduce p. 721
+		System.out.println("reduce the list down to a single string...");
+		String csv = contacts.stream().map(Contact::getName).reduce("", (a, b) -> a + b + ", ");
+		csv = csv.substring(0, csv.length() - 2);
+		System.out.println("All contacts: " + csv);
+
 		System.out.println("bye");
 
 	}
